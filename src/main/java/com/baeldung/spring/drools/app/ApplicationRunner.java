@@ -10,6 +10,8 @@ import com.baeldung.spring.drools.service.TaxiFareConfiguration;
 
 public class ApplicationRunner {
 
+    private static final String sqlTets = "INSERT INTO users(id, username) VALUES (1, 'user1')";
+
     public static void main(String[] args) {
         ApplicationContext context = new AnnotationConfigApplicationContext(TaxiFareConfiguration.class);
         TaxiFareCalculatorService taxiFareCalculatorService = (TaxiFareCalculatorService) context.getBean(TaxiFareCalculatorService.class);
@@ -18,6 +20,7 @@ public class ApplicationRunner {
         taxiRide.setDistanceInMile(200L);
         Fare rideFare = new Fare();
         taxiFareCalculatorService.calculateFare(taxiRide, rideFare);
+        System.out.println(sqlTets);
     }
 
 }
